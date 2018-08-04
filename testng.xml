@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TestNg-Suite-1" parallel="false">
+    <test name="Test">
+        <parameter name="browser" value="Chrome"/>
+        <groups>
+            <run>
+                <exclude name="testng-parallel-execution-tutorial"/>
+                <include name="testng-assert-tutorial"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="HelloTestNg"/>
+            <class name="TestNgParallelExecution"/>
+            <class name="AssertExample"/>
+        </classes>
+    </test>
+</suite>

@@ -27,6 +27,7 @@ public class HelloBrowserWebDriver {
                 System.out.println("Test Failed");
             }
             browserWebDriver.close();
+            browserWebDriver.quit();
         }
     }
 
