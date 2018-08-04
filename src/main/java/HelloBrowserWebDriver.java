@@ -35,15 +35,15 @@ public class HelloBrowserWebDriver {
         WebDriver browserWebDriver = null;
         ClassLoader classLoader = getClass().getClassLoader();
         if ("Chrome".equalsIgnoreCase(browser)) {
-            System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver.exe").getFile());
+            System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver.exe").getFile().replaceAll("%20"," "));
             ChromeOptions options= new ChromeOptions();
             options.addArguments("--lang=en-ca");
             browserWebDriver = new ChromeDriver(options);
         } else if ("Firefox".equalsIgnoreCase(browser)) {
-            System.setProperty("webdriver.gecko.driver", classLoader.getResource("drivers/geckodriver.exe").getFile());
+            System.setProperty("webdriver.gecko.driver", classLoader.getResource("drivers/geckodriver.exe").getFile().replaceAll("%20"," "));
             browserWebDriver = new FirefoxDriver();
         } else if ("Edge".equalsIgnoreCase(browser)) {
-            System.setProperty("webdriver.ie.driver", classLoader.getResource("drivers/MicrosoftWebDriver.exe").getFile());
+            System.setProperty("webdriver.ie.driver", classLoader.getResource("drivers/MicrosoftWebDriver.exe").getFile().replaceAll("%20"," "));
             browserWebDriver = new InternetExplorerDriver();
         } else {
             System.out.println("Browser not Supported");

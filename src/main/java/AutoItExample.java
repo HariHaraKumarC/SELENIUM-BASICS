@@ -25,7 +25,7 @@ public class AutoItExample extends HelloBrowserWebDriver {
             WebElement uploadButton=driver.findElement(By.id("uploadfile"));
             uploadButton.click();
             //Call the AutoIt Script
-            Runtime.getRuntime().exec(classLoader.getResource("autoIt/scripts/uploadFile.exe").getFile());
+            Runtime.getRuntime().exec(classLoader.getResource("autoIt/scripts/uploadFile.exe").getFile().replaceAll("%20"," "));
             System.out.println("File Uploaded Successfully...");
         }catch(NoSuchElementException e){
             System.out.println("No Such Element Exception occured > "+e);

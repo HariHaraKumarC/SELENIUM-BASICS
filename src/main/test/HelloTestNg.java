@@ -61,7 +61,7 @@ public class HelloTestNg {
     @BeforeClass
     public void initializeDriver() {
         ClassLoader classLoader = getClass().getClassLoader();
-        System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver.exe").getFile());
+        System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver.exe").getFile().replaceAll("%20"," "));
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en-ca");
         driver = new ChromeDriver(options);

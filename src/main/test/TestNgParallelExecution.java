@@ -15,7 +15,7 @@ public class TestNgParallelExecution {
 
     @Test(groups = {"testng-parallel-execution-tutorial"})
     public void openGoogleInChrome() {
-        System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver.exe").getFile());
+        System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver.exe").getFile().replaceAll("%20"," "));
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en-ca");
         WebDriver chromeDriver = new ChromeDriver(options);
@@ -26,7 +26,7 @@ public class TestNgParallelExecution {
 
     @Test(groups = {"testng-parallel-execution-tutorial"})
     public void openGoogleInFirefox() {
-        System.setProperty("webdriver.gecko.driver", classLoader.getResource("drivers/geckodriver.exe").getFile());
+        System.setProperty("webdriver.gecko.driver", classLoader.getResource("drivers/geckodriver.exe").getFile().replaceAll("%20"," "));
         WebDriver firefoxDriver = new FirefoxDriver();
         firefoxDriver.get(url);
         firefoxDriver.close();
